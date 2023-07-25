@@ -32,18 +32,12 @@ const Navbar = () => (
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link  text-primary" to="/">
-              Dragon
-            </Link>
-
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link  text-primary border-right" to="/">
+            <Link className="nav-link  text-primary border-right" to="/Missions">
               Missions
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link  text-primary" to="/">
+            <Link className="nav-link  text-primary" to="/Profile">
               Profile
             </Link>
 
