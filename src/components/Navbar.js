@@ -32,6 +32,11 @@ const Navbar = () => (
             </Link>
           </li>
           <li className="nav-item">
+            <Link className="nav-link text-primary" to="/Dragons">
+              Dragons
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-link  text-primary border-right" to="/Missions">
               Missions
             </Link>
