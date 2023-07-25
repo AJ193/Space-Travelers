@@ -26,16 +26,26 @@ const Navbar = () => (
       <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul className="navbar-nav">
             <li className="nav-item">
-                Rockets
+                <Link className="nav-link text-primary" to="/">
+                    Rockets
+                </Link>
             </li>
             <li className="nav-item">
+                <Link className="nav-link  text-primary" to="/">
                 Dragons
+                </Link>
+                
             </li>
             <li className="nav-item">
+                <Link className="nav-link  text-primary border-right" to="/">
                 Missions
+                </Link>
             </li> 
             <li className="nav-item">
+                <Link className="nav-link  text-primary" to="/">
                 Profile
+                </Link>
+                
             </li> 
           {/* Add more menu items here */}
         </ul>
