@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../img/logo.png';
 
 const Navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
 
       <Link className="navbar-brand d-flex" to="/" style={{ fontSize: '2rem' }}>
-      <img src={require('../img/logo.png')} alt="logo" height="60px" className="mx-2" />
-          Space Travellers&apos; Hub
+        <img src={logo} alt="logo" height="60px" className="mx-2" />
+        Space Travellers&apos; Hub
       </Link>
 
       <button
@@ -25,28 +26,28 @@ const Navbar = () => (
       {/* Navbar Items */}
       <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul className="navbar-nav">
-            <li className="nav-item">
-                <Link className="nav-link text-primary" to="/">
-                    Rockets
-                </Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link  text-primary" to="/">
-                Dragon
-                </Link>
-                
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link  text-primary border-right" to="/">
-                Missions
-                </Link>
-            </li> 
-            <li className="nav-item">
-                <Link className="nav-link  text-primary" to="/">
-                 Profile
-                </Link>
-                
-            </li> 
+          <li className="nav-item">
+            <Link className="nav-link text-primary" to="/">
+              Rockets
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link  text-primary" to="/">
+              Dragon
+            </Link>
+
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link  text-primary border-right" to="/">
+              Missions
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link  text-primary" to="/">
+              Profile
+            </Link>
+
+          </li>
           {/* Add more menu items here */}
         </ul>
       </div>
