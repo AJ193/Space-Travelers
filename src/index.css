@@ -51,7 +51,7 @@ a {
 }
 
 img {
-  width: 100%;
+  width: 30%;
   display: block;
 }
 
@@ -377,4 +377,8 @@ Dragon
   object-fit: cover;
   width: 300px;
   height: 200px;
+}
+
+.w-15 {
+  width: 15%;
 }

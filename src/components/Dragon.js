@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getDragons, updateDragon } from '../redux/dragons/dragonsSlice';
+import { getDragons, updateDragon, cancelDragon } from '../redux/dragons/dragonsSlice';
 
 const Dragon = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,10 @@ const Dragon = () => {
 
   const onUpdate = (id) => {
     dispatch(updateDragon(id));
+  };
+
+  const onCancel = (id) => {
+    dispatch(cancelDragon(id));
   };
 
   if (loading) return <p>Loading...</p>;
@@ -26,7 +30,7 @@ const Dragon = () => {
               <h2 className="title">{dragon.name}</h2>
               <p className="title">{dragon.type}</p>
               {
-                dragon.reserved ? <button type="button" className="btn btn-outline-primary">Cancel Reservation</button>
+                dragon.reserved ? <button onClick={() => onCancel(dragon.id)} type="button" className="btn btn-outline-primary">Cancel Reservation</button>
                   : <button onClick={() => onUpdate(dragon.id)} type="button" className="btn btn-primary">Reserve Rocket</button>
               }
 
