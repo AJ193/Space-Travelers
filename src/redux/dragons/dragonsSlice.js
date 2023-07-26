@@ -16,7 +16,20 @@ export const dragonsSlice = createSlice({
     loading: false,
   },
   reducers: {
-
+    updateDragon: (state, action) => {
+      state.dragons = state.dragons.map((dragon) => {
+        if (dragon.id !== action.payload) { return dragon; }
+        return { ...dragon, reserved: true };
+      });
+    },
+    cancelDragon: (state, action) => {
+       state.dragons = state.dragons.map((dragon) => {
+          if (dragon.id !== action.payload) {
+            return dragon;
+          }
+          return { ...dragon, reserved: false };
+        });
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -30,6 +43,7 @@ export const dragonsSlice = createSlice({
           name: load.name,
           type: load.type,
           flickr_images: load.flickr_images,
+          reserved: false,
         }));
       })
       .addCase(getDragons.rejected, (state) => {
@@ -38,5 +52,7 @@ export const dragonsSlice = createSlice({
   },
 
 });
+
+export const { updateDragon, cancelDragon } = dragonsSlice.actions;
 
 export default dragonsSlice.reducer;
