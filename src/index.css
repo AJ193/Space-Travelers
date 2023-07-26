@@ -176,6 +176,10 @@ nav svg {
   color: var(--clr-white);
 }
 
+.nav-item .active {
+  text-decoration: underline;
+}
+
 .amount-container {
   position: absolute;
   top: -0.6rem;
@@ -362,4 +366,15 @@ hr {
 .btn-container {
   display: flex;
   justify-content: space-around;
+}
+
+/*
+===============
+Dragon
+===============
+*/
+.dragon .image {
+  object-fit: cover;
+  width: 300px;
+  height: 200px;
 }
