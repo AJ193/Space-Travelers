@@ -1,0 +1,89 @@
+/* General Styling */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header-logo-and-name {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  width: 70px;
+}
+
+/* Rockets Component Styling Start */
+.rockets-container {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.rocket-card {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  gap: 30px;
+}
+
+.rocket-img {
+  width: 30%;
+  border: unset;
+}
+
+.rocket-infos-div {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rocket-infos-div h1 {
+  font-size: 20px;
+}
+
+.rocket-infos-div button {
+  text-transform: capitalize;
+  font-size: 18px;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.nonReservedStyle {
+  background: blue;
+  color: white;
+  width: 150px;
+  border: unset;
+  padding: 1px;
+}
+
+.reservedStyle {
+  background: hsl(0deg 0% 100%);
+  color: hsl(204deg 6% 65%);
+  width: 180px;
+  border: 1px solid hsl(210deg 6% 81%);
+}
+
+.reservedSpanStyle {
+  display: inline;
+  background: darkcyan;
+  color: white;
+  width: 35px;
+  height: 12px;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 2px;
+}
