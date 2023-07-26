@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../img/logo.png';
+import logo from '../img/planet.png';
 
 const Navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
