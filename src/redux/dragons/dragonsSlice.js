@@ -1,16 +1,13 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-export const getDragons = createAsyncThunk(
-  'dragons/getDragons',
-  async () => {
-    const response = await axios.get('https://api.spacexdata.com/v3/dragons');
-    return response.data;
-  },
-);
+export const getDragons = createAsyncThunk("dragons/getDragons", async () => {
+  const response = await axios.get("https://api.spacexdata.com/v3/dragons");
+  return response.data;
+});
 
 export const dragonsSlice = createSlice({
-  name: 'dragons',
+  name: "dragons",
   initialState: {
     dragons: [],
     loading: false,
@@ -18,8 +15,18 @@ export const dragonsSlice = createSlice({
   reducers: {
     updateDragon: (state, action) => {
       state.dragons = state.dragons.map((dragon) => {
-        if (dragon.id !== action.payload) { return dragon; }
+        if (dragon.id !== action.payload) {
+          return dragon;
+        }
         return { ...dragon, reserved: true };
+      });
+    },
+    cancelDragon: (state, action) => {
+      state.dragons = state.dragons.map((dragon) => {
+        if (dragon.id !== action.payload) {
+          return dragon;
+        }
+        return { ...dragon, reserved: false };
       });
     },
   },
@@ -42,9 +49,8 @@ export const dragonsSlice = createSlice({
         state.dragons = false;
       });
   },
-
 });
 
-export const { updateDragon } = dragonsSlice.actions;
+export const { updateDragon, cancelDragon } = dragonsSlice.actions;
 
 export default dragonsSlice.reducer;
