@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../img/logo.png';
 
 const Navbar = () => (
@@ -32,9 +32,9 @@ const Navbar = () => (
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-primary" to="/Dragons">
+            <NavLink className="nav-link text-primary" to="/Dragons">
               Dragons
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
             <Link className="nav-link  text-primary border-right" to="/Missions">
