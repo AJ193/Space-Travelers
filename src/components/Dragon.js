@@ -14,6 +14,11 @@ const Dragon = () => {
     dispatch(updateDragon(id));
   };
 
+  const onCancel = (id) => {
+    dispatch(cancelDragon(id));
+  };
+  
+
   if (loading) return <p>Loading...</p>;
 
   return (
@@ -26,7 +31,7 @@ const Dragon = () => {
               <h2 className="title">{dragon.name}</h2>
               <p className="title">{dragon.type}</p>
               {
-                dragon.reserved ? <button type="button" className="btn btn-outline-primary">Cancel Reservation</button>
+                dragon.reserved ? <button onClick={() => onCancel(dragon.id)} type="button" className="btn btn-outline-primary">Cancel Reservation</button>
                   : <button onClick={() => onUpdate(dragon.id)} type="button" className="btn btn-primary">Reserve Rocket</button>
               }
 
