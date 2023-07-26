@@ -1,29 +1,41 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+const url = 'https://api.spacexdata.com/v3/missions';
+
+export const getMissionData = createAsyncThunk(
+  'missions/getMissionItems',
+  async (thunkAPI) => {
+    try {
+      const res = await axios.get(url);
+      return res.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err);
+    }
+  },
+);
 
 const initialState = {
-  missionItem: [
-    {
-      mission_id: 1,
-      mission_name: 'Mission 1',
-      description: `Thaicom is the name of a series of communications satellites operated from Thailand,
-        and also the name of Thaicom Public Company Limited,
-        which is the company that owns and operates the Thaicom satellite
-        fleet and other telecommunication businesses in Thailand and throughout
-        the Asia-Pacific region. The satellite projects were named Thaicom by the
-        King of Thailand, His Majesty the King Bhumibol Adulyadej,
-        as a symbol of the linkage between Thailand and modern
-        communications technology.`,
-    },
-  ],
+  missionItem: [],
   isLoading: false,
-
 };
 
 const missionSlice = createSlice({
   name: 'missions',
   initialState,
+  extraReducers: (builder) => {
+    builder
+      .addCase(getMissionData.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getMissionData.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.missionItem = action.payload;
+      })
+      .addCase(getMissionData.rejected, (state) => {
+        state.isLoading = false;
+      });
+  },
 });
-
-console.log(missionSlice);
 
 export default missionSlice.reducer;

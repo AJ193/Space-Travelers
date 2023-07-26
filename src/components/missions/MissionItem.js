@@ -11,7 +11,7 @@ const MissionItem = ({ id, name, description }) => (
 );
 
 MissionItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };

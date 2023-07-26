@@ -1,8 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MissionItem from './MissionItem';
+import { getMissionData } from '../../redux/missions/missionSlice';
 
 const Missions = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getMissionData());
+  }, [dispatch]);
+
   const { missionItem, isLoading } = useSelector((store) => store.missions);
 
   if (isLoading) {
@@ -15,7 +21,6 @@ const Missions = () => {
 
   return (
     <div className="container-fluid mt-5">
-      <h3>Welcome to the Mussions Page!</h3>
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
