@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getDragons, updateDragon } from '../redux/dragons/dragonsSlice';
+import { getDragons, updateDragon, cancelDragon } from '../redux/dragons/dragonsSlice';
 
 const Dragon = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,6 @@ const Dragon = () => {
   const onCancel = (id) => {
     dispatch(cancelDragon(id));
   };
-  
 
   if (loading) return <p>Loading...</p>;
 
