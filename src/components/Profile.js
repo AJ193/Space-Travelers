@@ -14,7 +14,7 @@ const Profile = () => {
 
   return (
     <section>
-      <div className="container-mt-5">
+      <div className="container mt-5">
         <div className="row">
           <div className="col-4">
             <h2>Missions</h2>
@@ -25,22 +25,23 @@ const Profile = () => {
             </table>
           </div>
           <div className="col-4">
-            <h1 className="Rockets">Rockets</h1>
-            <ul>
+            <h2 className="Rockets">Rockets</h2>
+            <table className="table table-bordered">
               {reservedRockets.map((rocket) => (
-                <li key={generateKey()}>{rocket.rocket_name}</li>
+                <tr key={generateKey()}><td className="p-2">{rocket.rocket_name}</td></tr>
               ))}
-            </ul>
+            </table>
+          </div>
+          <div className="col-4">
+            <h2>Dragons</h2>
+            <table className="table table-bordered">
+              { reservedDragon.map((dragon) => (
+                <tr key={dragon.id}><td className="p-2">{ dragon.name }</td></tr>
+              ))}
+            </table>
           </div>
         </div>
-        <div className="col-4">
-          <h2>Dragons</h2>
-          <table className="table table-bordered">
-            { reservedDragon.map((dragon) => (
-              <tr key={dragon.id}><td className="p-2">{ dragon.name }</td></tr>
-            ))}
-          </table>
-        </div>
+
       </div>
     </section>
   );
