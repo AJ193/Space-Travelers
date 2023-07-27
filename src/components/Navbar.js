@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../img/planet.png';
 
 const Navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
 
-      <Link className="navbar-brand d-flex" to="/" style={{ fontSize: '2rem' }}>
+      <NavLink className="navbar-brand d-flex" to="/" style={{ fontSize: '2rem' }}>
         <img src={logo} alt="logo" height="60px" className="mx-2" />
         Space Travellers&apos; Hub
-      </Link>
+      </NavLink>
 
       <button
         className="navbar-toggler"
@@ -27,24 +27,24 @@ const Navbar = () => (
       <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link text-primary" to="/">
+            <NavLink className="nav-link text-primary" activeclassname="active" to="/">
               Rockets
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-primary" to="/Dragons">
+            <NavLink className="nav-link text-primary" activeclassname="active" to="/Dragons">
               Dragons
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link  text-primary border-right" to="/Missions">
+            <NavLink className="nav-link  text-primary border-right" activeclassname="active" to="/Missions">
               Missions
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link  text-primary" to="/Profile">
+            <NavLink className="nav-link  text-primary" activeclassname="active" to="/Profile">
               Profile
-            </Link>
+            </NavLink>
 
           </li>
           {/* Add more menu items here */}
