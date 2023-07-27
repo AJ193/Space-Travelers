@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'jest-fetch-mock';
-import { getDragons } from '../redux/dragons/dragonsSlice'; 
+import { getDragons } from '../redux/dragons/dragonsSlice';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
