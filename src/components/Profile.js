@@ -6,7 +6,9 @@ import { selectRockets } from '../redux/rocket/rocketsSlice';
 const Profile = () => {
   const rocketsList = useSelector(selectRockets);
   const { missionItem } = useSelector((store) => store.missions);
+  const { dragons } = useSelector((store) => store.dragons);
 
+  const reservedDragon = dragons.filter((dragon) => dragon.reserved === true);
   const reservedMissions = missionItem.filter((mission) => mission.reserved === true);
   const reservedRockets = rocketsList.filter((b) => b.reserved);
   const generateKey = () => `_${Math.random().toString(36).substr(2, 9)}`;
@@ -31,6 +33,14 @@ const Profile = () => {
               ))}
             </table>
           </div>
+        </div>
+        <div className="col-4">
+          <h2>Dragons</h2>
+          <table className="table table-bordered">
+            { reservedDragon.map((dragon) => (
+              <tr key={dragon.id}><td className="p-2">{ dragon.name }</td></tr>
+            ))}
+          </table>
         </div>
       </div>
     </section>
