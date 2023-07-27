@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import styles from './MyProfile.css';
 import { selectRockets } from '../redux/rocket/rocketsSlice';
 
 const Profile = () => {
@@ -14,15 +13,7 @@ const Profile = () => {
   const generateKey = () => `_${Math.random().toString(36).substr(2, 9)}`;
 
   return (
-    <section className={styles.myProfileSection}>
-      <div className={styles.myProfileRocketsList}>
-        <h1 className="Rockets">My Rockets</h1>
-        <ul className={styles.myProfileRocketsList}>
-          {reservedRockets.map((rocket) => (
-            <li key={generateKey()}>{rocket.rocket_name}</li>
-          ))}
-        </ul>
-      </div>
+    <section>
       <div className="container-mt-5">
         <div className="row">
           <div className="col-4">
@@ -32,6 +23,14 @@ const Profile = () => {
                 <tr key={mission.mission_id}><td className="p-2">{ mission.mission_name }</td></tr>
               ))}
             </table>
+          </div>
+          <div className="col-4">
+            <h1 className="Rockets">Rockets</h1>
+            <ul>
+              {reservedRockets.map((rocket) => (
+                <li key={generateKey()}>{rocket.rocket_name}</li>
+              ))}
+            </ul>
           </div>
         </div>
         <div className="col-4">
