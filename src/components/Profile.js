@@ -1,24 +1,39 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import styles from './MyProfile.css';
+import { selectRockets } from '../redux/rocket/rocketsSlice';
 
 const Profile = () => {
+  const rocketsList = useSelector(selectRockets);
   const { missionItem } = useSelector((store) => store.missions);
 
   const reservedMissions = missionItem.filter((mission) => mission.reserved === true);
+  const reservedRockets = rocketsList.filter((b) => b.reserved);
+  const generateKey = () => `_${Math.random().toString(36).substr(2, 9)}`;
 
   return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-4">
-          <h2>Missions</h2>
-          <table className="table table-bordered">
-            { reservedMissions.map((mission) => (
-              <tr key={mission.mission_id}><td className="p-2">{ mission.mission_name }</td></tr>
-            ))}
-          </table>
+    <section className={styles.myProfileSection}>
+      <div className={styles.myProfileRocketsList}>
+        <h1 className="Rockets">My Rockets</h1>
+        <ul className={styles.myProfileRocketsList}>
+          {reservedRockets.map((rocket) => (
+            <li key={generateKey()}>{rocket.rocket_name}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="container-mt-5">
+        <div className="row">
+          <div className="col-4">
+            <h2>Missions</h2>
+            <table className="table table-bordered">
+              { reservedMissions.map((mission) => (
+                <tr key={mission.mission_id}><td className="p-2">{ mission.mission_name }</td></tr>
+              ))}
+            </table>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
