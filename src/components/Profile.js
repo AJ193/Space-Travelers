@@ -7,6 +7,7 @@ const Profile = () => {
 
   const reservedMissions = missionItem.filter((mission) => mission.reserved === true);
   const reservedDragon = dragons.filter((dragon) => dragon.reserved === true);
+  const reservedMissions = missionItem.filter((mission) => mission.reserved === true);
 
   return (
     <div className="container mt-5">
