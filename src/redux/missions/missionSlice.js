@@ -18,15 +18,6 @@ export const getMissionData = createAsyncThunk(
 export const JOIN_MISSION = 'missions/joinMission';
 export const LEAVE_MISSION = 'missions/leaveMission';
 
-export const joinMission = (missionId) => ({
-  type: JOIN_MISSION,
-  payload: missionId,
-});
-export const leaveMission = (missionId) => ({
-  type: LEAVE_MISSION,
-  payload: missionId,
-});
-
 const initialState = {
   missionItem: [],
   isLoading: false,
@@ -64,4 +55,5 @@ const missionSlice = createSlice({
   },
 });
 
+export const { joinMission, leaveMission } = missionSlice.actions;
 export default missionSlice.reducer;
