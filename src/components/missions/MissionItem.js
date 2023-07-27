@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { joinMission } from '../../redux/missions/missionSlice';
+import { joinMission, leaveMission } from '../../redux/missions/missionSlice';
 
 const MissionItem = ({
   id, name, description, reserved,
@@ -11,13 +11,17 @@ const MissionItem = ({
     dispatch(joinMission(id));
   };
 
+  const handleLeaveMission = () => {
+    dispatch(leaveMission(id));
+  };
+
   return (
     <tr id={id}>
       <td>{name}</td>
       <td>{description}</td>
       <td className="text-center"><span className="badge badge-secondary bg-secondary">NOT A MEMBER</span></td>
       <td className="w-15 text-center">
-        <button type="button" aria-label={reserved ? 'Leave Mission' : 'Join Mission'} className={reserved ? 'btn btn-sm btn-outline-info' : 'btn btn-sm btn-outline-secondary'} onClick={!reserved ? handleJoinMission : ''}>
+        <button type="button" aria-label={reserved ? 'Leave Mission' : 'Join Mission'} className={reserved ? 'btn btn-sm btn-outline-info' : 'btn btn-sm btn-outline-secondary'} onClick={!reserved ? handleJoinMission : handleLeaveMission}>
           {' '}
           {reserved ? 'Leave Mission' : 'Join Mission'}
           {' '}
