@@ -5,7 +5,6 @@ const Profile = () => {
   const { missionItem } = useSelector((store) => store.missions);
   const { dragons } = useSelector((store) => store.dragons);
 
-  const reservedMissions = missionItem.filter((mission) => mission.reserved === true);
   const reservedDragon = dragons.filter((dragon) => dragon.reserved === true);
   const reservedMissions = missionItem.filter((mission) => mission.reserved === true);
 
