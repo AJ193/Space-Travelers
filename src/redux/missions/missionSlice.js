@@ -15,6 +15,13 @@ export const getMissionData = createAsyncThunk(
   },
 );
 
+export const JOIN_MISSION = 'missions/joinMission';
+
+export const joinMission = (missionId) => ({
+  type: JOIN_MISSION,
+  payload: missionId,
+});
+
 const initialState = {
   missionItem: [],
   isLoading: false,
@@ -23,6 +30,14 @@ const initialState = {
 const missionSlice = createSlice({
   name: 'missions',
   initialState,
+  reducers: {
+    joinMission: (state, action) => {
+      const missionId = action.payload;
+      state.missionItem = state.missionItem.map((mission) => (
+        mission.mission_id === missionId ? { ...mission, reserved: true } : mission
+      ));
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getMissionData.pending, (state) => {
