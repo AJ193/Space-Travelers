@@ -9,11 +9,16 @@ import Missions from './components/missions/Missions';
 import Rockets from './components/Rockets';
 import { fetchRockets } from './redux/rocket/rocketsSlice';
 import Profile from './components/Profile';
+import { getMissionData } from './redux/missions/missionSlice';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchRockets());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getMissionData());
   }, [dispatch]);
 
   return (

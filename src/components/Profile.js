@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import styles from './MyProfile.css';
 import { selectRockets } from '../redux/rocket/rocketsSlice';
 
 const Profile = () => {
@@ -14,34 +13,41 @@ const Profile = () => {
   const generateKey = () => `_${Math.random().toString(36).substr(2, 9)}`;
 
   return (
-    <section className={styles.myProfileSection}>
-      <div className={styles.myProfileRocketsList}>
-        <h1 className="Rockets">My Rockets</h1>
-        <ul className={styles.myProfileRocketsList}>
-          {reservedRockets.map((rocket) => (
-            <li key={generateKey()}>{rocket.rocket_name}</li>
-          ))}
-        </ul>
-      </div>
-      <div className="container-mt-5">
+    <section>
+      <div className="container mt-5">
         <div className="row">
           <div className="col-4">
             <h2>Missions</h2>
             <table className="table table-bordered">
-              { reservedMissions.map((mission) => (
-                <tr key={mission.mission_id}><td className="p-2">{ mission.mission_name }</td></tr>
-              ))}
+              <tbody>
+                { reservedMissions.map((mission) => (
+                  <tr key={mission.mission_id}><td className="p-2">{ mission.mission_name }</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="col-4">
+            <h2 className="Rockets">Rockets</h2>
+            <table className="table table-bordered">
+              <tbody>
+                {reservedRockets.map((rocket) => (
+                  <tr key={generateKey()}><td className="p-2">{rocket.rocket_name}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="col-4">
+            <h2>Dragons</h2>
+            <table className="table table-bordered">
+              <tbody>
+                { reservedDragon.map((dragon) => (
+                  <tr key={dragon.id}><td className="p-2">{ dragon.name }</td></tr>
+                ))}
+              </tbody>
             </table>
           </div>
         </div>
-        <div className="col-4">
-          <h2>Dragons</h2>
-          <table className="table table-bordered">
-            { reservedDragon.map((dragon) => (
-              <tr key={dragon.id}><td className="p-2">{ dragon.name }</td></tr>
-            ))}
-          </table>
-        </div>
+
       </div>
     </section>
   );

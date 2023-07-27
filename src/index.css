@@ -382,3 +382,8 @@ Dragon
 .w-15 {
   width: 15%;
 }
+
+.nav-link.active {
+  text-decoration: underline;
+  font-weight: bold;
+}

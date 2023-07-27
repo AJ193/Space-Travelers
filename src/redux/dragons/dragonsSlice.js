@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 export const getDragons = createAsyncThunk('dragons/getDragons', async () => {
-  const response = await axios.get('https://api.spacexdata.com/v3/dragons');
-  return response.data;
+  const response = await fetch('https://api.spacexdata.com/v3/dragons');
+  const res = response.json();
+  // console.log(respon);
+  return res;
 });
 
 export const dragonsSlice = createSlice({
@@ -35,15 +36,20 @@ export const dragonsSlice = createSlice({
       .addCase(getDragons.pending, (state) => {
         state.loading = true;
       })
-      .addCase(getDragons.fulfilled, (state, { payload }) => {
+      .addCase(getDragons.fulfilled, (state, action) => {
+        // console.log(payload);
         state.loading = false;
-        state.dragons = payload.map((load) => ({
-          id: load.id,
-          name: load.name,
-          type: load.type,
-          flickr_images: load.flickr_images,
-          reserved: false,
-        }));
+        const data = Object.keys(action.payload).map((load) => {
+          const obj = {
+            id: action.payload[load].id,
+            name: action.payload[load].name,
+            type: action.payload[load].type,
+            flickr_images: action.payload[load].flickr_images,
+            reserved: false,
+          };
+          return obj;
+        });
+        state.dragons = data;
       })
       .addCase(getDragons.rejected, (state) => {
         state.dragons = false;
