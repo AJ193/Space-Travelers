@@ -19,25 +19,31 @@ const Profile = () => {
           <div className="col-4">
             <h2>Missions</h2>
             <table className="table table-bordered">
-              { reservedMissions.map((mission) => (
-                <tr key={mission.mission_id}><td className="p-2">{ mission.mission_name }</td></tr>
-              ))}
+              <tbody>
+                { reservedMissions.map((mission) => (
+                  <tr key={mission.mission_id}><td className="p-2">{ mission.mission_name }</td></tr>
+                ))}
+              </tbody>
             </table>
           </div>
           <div className="col-4">
             <h2 className="Rockets">Rockets</h2>
             <table className="table table-bordered">
-              {reservedRockets.map((rocket) => (
-                <tr key={generateKey()}><td className="p-2">{rocket.rocket_name}</td></tr>
-              ))}
+              <tbody>
+                {reservedRockets.map((rocket) => (
+                  <tr key={generateKey()}><td className="p-2">{rocket.rocket_name}</td></tr>
+                ))}
+              </tbody>
             </table>
           </div>
           <div className="col-4">
             <h2>Dragons</h2>
             <table className="table table-bordered">
-              { reservedDragon.map((dragon) => (
-                <tr key={dragon.id}><td className="p-2">{ dragon.name }</td></tr>
-              ))}
+              <tbody>
+                { reservedDragon.map((dragon) => (
+                  <tr key={dragon.id}><td className="p-2">{ dragon.name }</td></tr>
+                ))}
+              </tbody>
             </table>
           </div>
         </div>

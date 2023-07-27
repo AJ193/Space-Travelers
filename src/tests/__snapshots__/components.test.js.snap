@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component testing Dragon component should render correctly 1`] = `
+<DocumentFragment>
+  <p>
+    Loading...
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component testing Mission component should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="container-fluid mt-5"
+  >
+    <table
+      class="table table-striped table-bordered"
+    >
+      <thead>
+        <tr>
+          <th>
+            Mission
+          </th>
+          <th>
+            Description
+          </th>
+          <th>
+            Status
+          </th>
+          <th
+            aria-label=""
+          >
+             
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component testing Profile component should render correctly 1`] = `
+<DocumentFragment>
+  <section>
+    <div
+      class="container mt-5"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-4"
+        >
+          <h2>
+            Missions
+          </h2>
+          <table
+            class="table table-bordered"
+          >
+            <tbody />
+          </table>
+        </div>
+        <div
+          class="col-4"
+        >
+          <h2
+            class="Rockets"
+          >
+            Rockets
+          </h2>
+          <table
+            class="table table-bordered"
+          >
+            <tbody />
+          </table>
+        </div>
+        <div
+          class="col-4"
+        >
+          <h2>
+            Dragons
+          </h2>
+          <table
+            class="table table-bordered"
+          >
+            <tbody />
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Component testing Rocket component should render correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <ul
+      class="rockets-container"
+    />
+  </div>
+</DocumentFragment>
+`;
